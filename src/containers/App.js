@@ -26,6 +26,10 @@ class App extends Component {
     console.log('[App.js] Inside componentDidMount()');
   }
 
+  componentWillUnmount() {
+    console.log('[Apps.js] Inside componentWillUnmount()');
+  }
+
   switchNameHandler = (newName) => {
     this.setState({
       persons: [
