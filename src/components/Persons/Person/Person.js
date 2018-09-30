@@ -26,6 +26,10 @@ class Person extends Component {
     console.log('[Person.js] Inside componentWillUnmount()');
   }
 
+  focus() {
+    this.inputElement.current.focus();
+  }
+
   render () {
     console.log('[Person.js] Inside render()');
     return (
