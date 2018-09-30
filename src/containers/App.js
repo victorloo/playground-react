@@ -16,7 +16,8 @@ class App extends PureComponent {
         { id: 'mvaso', name: 'Jaina', age: 40 }
       ],
       showPersons: false,
-      toggleClicked: 0
+      toggleClicked: 0,
+      authenticated: false
     };
   }
 
@@ -92,6 +93,10 @@ class App extends PureComponent {
     });
   }
 
+  loginHandler = () => {
+    this.setState({authenticated: true});
+  }
+
   render() {
     console.log('[App.js] Inside render()');
     let persons = null;
@@ -100,7 +105,8 @@ class App extends PureComponent {
       persons = <Persons
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
-          changed={this.nameChangeHandler} />;
+          changed={this.nameChangeHandler}
+          isAuthenticated={this.state.authenticated} />;
     }
 
     return (
@@ -110,7 +116,8 @@ class App extends PureComponent {
           appTitle={this.props.title}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
-          clicked={this.togglePersonsHandler} />
+          clicked={this.togglePersonsHandler}
+          login={this.loginHandler} />
         {persons}
       </React.Fragment>
     );
